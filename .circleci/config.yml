@@ -1,0 +1,29 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: golang:1.8
+    working_directory: /tmp/sample-repo
+    steps:
+      - checkout
+      - run:
+          name: stderr routing
+          command: |
+            ls -lha
+            pwd
+            >&2 echo "this should go to stderr"
+      - run:
+          name: stdout routing
+          command: |
+            echo "this should go to stdout"
+            >&2 echo "then this should go to stderr"
+            echo "this final line goes to stdout"
+  test:
+    docker:
+      - image: golang:1.8
+    working_directory: /tmp/sample-repo
+    steps:
+      - checkout
+      - run:
+          name: foo
+          command: echo foo
