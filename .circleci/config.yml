@@ -28,3 +28,10 @@ jobs:
           name: foo
           command: echo foo
 
+workflows:
+  build:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
