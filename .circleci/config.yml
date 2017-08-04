@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  build-build-build-build-build-build-build:
     docker:
       - image: golang:1.8
     working_directory: /tmp/sample-repo
@@ -18,7 +18,7 @@ jobs:
             echo "this should go to stdout"
             >&2 echo "then this should go to stderr"
             echo "this final line goes to stdout"
-  test:
+  test-test-test-test-test-test-test-test:
     docker:
       - image: golang:1.8
     working_directory: /tmp/sample-repo
@@ -32,7 +32,7 @@ workflows:
   version: 1
   build:
     jobs:
-      - build
-      - test:
+      - build-build-build-build-build-build-build
+      - test-test-test-test-test-test-test-test:
           requires:
-            - build
+            - build-build-build-build-build-build-build
