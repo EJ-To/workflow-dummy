@@ -32,7 +32,11 @@ workflows:
   version: 2
   build:
     jobs:
-      - build-build-build-build-build-build-build
+      - build-build-build-build-build-build-build:
+          filters:
+            tag:
+              only:
+                - /.*/
       - approve-approve-approve-approve-approve-approve:
           type: approval
           requires:
