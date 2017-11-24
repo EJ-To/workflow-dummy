@@ -4,6 +4,7 @@ jobs:
     docker:
       - image: golang:1.8
     working_directory: /tmp/sample-repo
+    resource_class: small
     steps:
       - checkout
       - run:
@@ -23,6 +24,7 @@ jobs:
   test-test-test-test-test-test-test-test:
     docker:
       - image: golang:1.8
+    resource_class: small
     working_directory: /tmp/sample-repo
     steps:
       - checkout
@@ -34,11 +36,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - build-build-build-build-build-build-build:
-          filters:
-            tags:
-              only:
-                - /.*/
+      - build-build-build-build-build-build-build
       - approve-approve-approve-approve-approve-approve:
           type: approval
           requires:
