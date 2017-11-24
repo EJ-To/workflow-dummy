@@ -45,7 +45,8 @@ workflows:
   build:
     jobs:
       - successful-one
-      - build-build-build-build-build-build-build:
+      - approval:
+          type: approval
           requires:
             - successful-one
       - test-test-test-test-test-test-test-test
