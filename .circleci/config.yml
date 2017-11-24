@@ -2,11 +2,10 @@ version: 2
 jobs:
   build-build-build-build-build-build-build:
     docker:
-      - image: golang:1.8
+      - image: circleci/clojure:lein-2.7.1
     working_directory: /tmp/sample-repo
     resource_class: small
     steps:
-      - checkout
       - run:
           name: stderr routing
           command: |
@@ -21,11 +20,10 @@ jobs:
             echo "this final line goes to stdout"
   test-test-test-test-test-test-test-test:
     docker:
-      - image: golang:1.8
+      - image: circleci/clojure:lein-2.7.1
     resource_class: small
     working_directory: /tmp/sample-repo
     steps:
-      - checkout
       - run:
           name: foo
           command: echo foo
@@ -35,10 +33,4 @@ workflows:
   build:
     jobs:
       - build-build-build-build-build-build-build
-      - approve-approve-approve-approve-approve-approve:
-          type: approval
-          requires:
-            - build-build-build-build-build-build-build
-      - test-test-test-test-test-test-test-test:
-          requires:
-            - approve-approve-approve-approve-approve-approve
+      - test-test-test-test-test-test-test-test
