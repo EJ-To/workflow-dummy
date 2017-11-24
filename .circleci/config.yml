@@ -1,5 +1,13 @@
 version: 2
 jobs:
+  successful-one:
+    docker:
+      - image: circleci/clojure:lein-2.7.1
+    working_directory: /tmp/sample-repo
+    resource_class: small
+    steps:
+      - run:
+          command: echo 'hi'
   build-build-build-build-build-build-build:
     docker:
       - image: circleci/clojure:lein-2.7.1
@@ -36,7 +44,8 @@ workflows:
   version: 2
   build:
     jobs:
+      - successful-one
       - build-build-build-build-build-build-build:
           requires:
-            - test-test-test-test-test-test-test-test
+            - successful-one
       - test-test-test-test-test-test-test-test
