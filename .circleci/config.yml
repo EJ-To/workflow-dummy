@@ -8,8 +8,6 @@ jobs:
     steps:
       - checkout
       - run:
-          command: sleep 600
-      - run:
           name: stderr routing
           command: |
             ls -lha
