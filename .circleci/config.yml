@@ -35,8 +35,6 @@ jobs:
     working_directory: /tmp/sample-repo
     steps:
       - run:
-          command: exit 1
-      - run:
           name: foo
           command: echo foo
 
@@ -45,4 +43,6 @@ workflows:
   build:
     jobs:
       - successful-one
-      - test-test-test-test-test-test-test-test
+      - test-test-test-test-test-test-test-test:
+          requires:
+            - successful-one
