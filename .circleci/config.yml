@@ -49,4 +49,4 @@ workflows:
           type: approval
           requires:
             - successful-one
-      # - test-test-test-test-test-test-test-test
+      - test-test-test-test-test-test-test-test
