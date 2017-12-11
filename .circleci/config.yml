@@ -44,8 +44,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - successful-one:
-          context: org-global
+      - successful-one
       # - approval:
       #     type: approval
       #     requires:
