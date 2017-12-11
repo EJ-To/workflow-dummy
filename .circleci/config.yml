@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  successful-one:
+  build:
     docker:
       - image: circleci/clojure:lein-2.7.1
     working_directory: /tmp/sample-repo
@@ -40,12 +40,12 @@ jobs:
           name: foo
           command: echo foo
 
-workflows:
-  version: 2
-  build:
-    jobs:
-      - successful-one:
-          context: custom-name
+# workflows:
+#   version: 2
+#   build:
+#     jobs:
+#       - successful-one:
+#           context: custom-name
       # - approval:
       #     type: approval
       #     requires:
