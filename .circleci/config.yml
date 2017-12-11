@@ -45,7 +45,7 @@ workflows:
   build:
     jobs:
       - successful-one:
-          context: custom-name
+          context: custom-namee
       # - approval:
       #     type: approval
       #     requires:
