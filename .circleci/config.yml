@@ -7,7 +7,7 @@ jobs:
     resource_class: small
     steps:
       - run:
-          command: echo 'hi'
+          command: echo $FOO
   build-build-build-build-build-build-build:
     docker:
       - image: circleci/clojure:lein-2.7.1
@@ -46,8 +46,8 @@ workflows:
     jobs:
       - successful-one:
           context: org-global
-      - approval:
-          type: approval
-          requires:
-            - successful-one
-      - test-test-test-test-test-test-test-test
+      # - approval:
+      #     type: approval
+      #     requires:
+      #       - successful-one
+      # - test-test-test-test-test-test-test-test
