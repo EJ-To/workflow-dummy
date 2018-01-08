@@ -39,15 +39,23 @@ jobs:
       - run:
           name: foo
           command: echo foo
-
-workflows:
-  version: 2
   build:
-    jobs:
-      - successful-one:
-          context: custom-namee
-      # - approval:
-      #     type: approval
-      #     requires:
-      #       - successful-one
-      # - test-test-test-test-test-test-test-test
+    docker:
+      - image: circleci/clojure:lein-2.7.1
+    resource_class: small
+    working_directory: /root/project
+    steps:
+      - run:
+          command: echo hi
+
+# workflows:
+#   version: 2
+#   build:
+#     jobs:
+#       - successful-one:
+#           context: custom-namee
+#       # - approval:
+#       #     type: approval
+#       #     requires:
+#       #       - successful-one
+#       # - test-test-test-test-test-test-test-test
