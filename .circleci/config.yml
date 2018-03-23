@@ -52,8 +52,10 @@ workflows:
     jobs:
       - successful-one:
           context: foo
-      # - approval:
-      #     type: approval
-      #     requires:
-      #       - successful-one
-      # - test-test-test-test-test-test-test-test
+      - approval:
+          type: approval
+          requires:
+            - successful-one
+      - test-test-test-test-test-test-test-test:
+          requires:
+            - approval
