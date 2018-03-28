@@ -50,8 +50,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - successful-one:
-          context: foo
+      - successful-one
       - approval:
           type: approval
           requires:
