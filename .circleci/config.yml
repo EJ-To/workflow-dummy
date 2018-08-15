@@ -8,6 +8,8 @@ jobs:
     steps:
       - run:
           command: echo $HELLO_WORLD
+      - run:
+          command: sleep 600
   build-build-build-build-build-build-build:
     docker:
       - image: circleci/clojure:lein-2.7.1
