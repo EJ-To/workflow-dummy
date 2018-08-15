@@ -1,6 +1,14 @@
 version: 2
 jobs:
-  successful-one:
+  job-one:
+    docker:
+      - image: circleci/clojure:lein-2.7.1
+    working_directory: /tmp/sample-repo
+    resource_class: small
+    steps:
+      - run:
+          command: echo $HELLO_WORLD
+  job-two:
     docker:
       - image: circleci/clojure:lein-2.7.1
     working_directory: /tmp/sample-repo
@@ -50,12 +58,18 @@ workflows:
   version: 2
   build:
     jobs:
-      - approval:
+      - sfo-approval:
           type: approval
-      - successful-one:
-          context: my-context
+      - alex-approval:
+          type: approval
+      - job-one:
+          context: alex-context
           requires:
-            - approval
+            - alex-approval
+      - job-two:
+          context: sfo-context
+          requires:
+            - sfo-approval
       # - approval:
       #     type: approval
       #     requires:
