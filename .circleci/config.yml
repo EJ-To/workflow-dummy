@@ -62,16 +62,16 @@ workflows:
           type: approval
       - alex-approval:
           type: approval
-          requires:
-            - job-two
       - job-one:
           context: alex-context
           requires:
             - alex-approval
+            - sfo-approval
       - job-two:
           context: sfo-context
           requires:
             - sfo-approval
+            - alex-approval
       # - approval:
       #     type: approval
       #     requires:
