@@ -66,12 +66,10 @@ workflows:
           context: alex-context
           requires:
             - alex-approval
-            - kunal-approval
       - job-two:
           context: kunal-context
           requires:
             - kunal-approval
-            - alex-approval
       # - approval:
       #     type: approval
       #     requires:
