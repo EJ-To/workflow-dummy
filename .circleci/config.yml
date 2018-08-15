@@ -52,8 +52,12 @@ workflows:
   version: 2
   build:
     jobs:
+      - approval:
+          type: approval
       - successful-one:
           context: my-context
+          requires:
+            - approval
       # - approval:
       #     type: approval
       #     requires:
