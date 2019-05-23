@@ -58,20 +58,8 @@ workflows:
   version: 2
   build:
     jobs:
-      - kunal-approval:
-          type: approval
-      - alex-approval:
-          type: approval
-          requires:
-            - job-two
       - job-one:
-          context: alex-context
-          requires:
-            - alex-approval
-      - job-two:
-          context: kunal-context
-          requires:
-            - kunal-approval
+          context: restricted
       # - approval:
       #     type: approval
       #     requires:
